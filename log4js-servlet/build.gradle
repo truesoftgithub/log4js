@@ -1,7 +1,7 @@
 
 
 apply plugin: 'java'
-apply plugin: 'jar'
+apply plugin: 'war'
 apply plugin: 'jacoco'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -31,3 +31,15 @@ compileJava {
     options.encoding = 'UTF-8'
     options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 }
+
+pom.project.build.plugins {
+	plugin {
+		artifactId 'maven-war-plugin'
+		version '2.1-beta-1'
+		configuration {
+			attachClasses 'true'
+		}
+	}
+
+}
+
